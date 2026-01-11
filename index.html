@@ -5,179 +5,255 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Churros Rellenos | Catálogo</title>
 
-  <Style>
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+  <!-- FUENTE -->
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Oswald:wght@200..700&display=swap" rel="stylesheet" > 
+  <style>
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    html {
+      scroll-behavior: smooth;
+    }
 
-    /* RESET BÁSICO */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #fafafa;
+      color: #222;
+      line-height: 1.4;
+    }
+
+    /* HEADER */
+    #main-header {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    height: 30vh;
+    transition: height 0.4s ease;
+    overflow: hidden;
+    z-index: 10;
+    }
+
+    #main-header.compact {
+    height: 6.8rem;
+    }
+
+    .logo,
+    .extra {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    #main-header.compact .logo,
+    #main-header.compact .extra {
+    opacity: 0;
+    transform: translateY(-10px);
+    }
+
+    .header-content {
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .header-content h1 {
+      font-family: "Lobster", sans-serif;
+      font-size: 3rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .slogan {
+      font-size: 0.95rem;
+      color: #444;
+      transition: opacity 0.3s ease, font-size 0.3s ease;
+    }
+
+    .logo {
+      height: 6rem;
+      margin: 0.7rem auto;
+      display: block;
+    }
+
+    .extra {
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    .logo,
+    .extra {
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    #main-header.compact .logo,
+    #main-header.compact .extra {
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
 }
 
-/* SCROLL SUAVE NATIVO */
-html {
-  scroll-behavior: smooth;
-}
 
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background-color: #fafafa;
-  color: #222;
-  line-height: 1.4;
-}
+    /* CATÁLOGO */
+    .catalogo {
+      padding: 1rem;
+      display: grid;
+      gap: 1rem;
+    }
+    .categorias{
+      text-align: center;
+      width: 100%;
+      padding: 0.2rem;
+      border: none;
+      border-radius: 12px;
+      background: #000000d7;
+      font-size: 1.2rem;
+      font-family: "Oswald", sans-serif;
+      font-optical-sizing: auto;
+      font-style: normal;
+      color: whitesmoke;
+      box-shadow: 0px 0px 10px rgba(26, 26, 26, 0.677);
+      text-shadow: 0px 0px 8px white;
+    }
 
-/* HEADER */
-.header {
-  padding: 1.5rem 1rem;
-  text-align: center;
-  background: #fff;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
+    /* TARJETAS */
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      transition: transform 0.25s ease;
+      will-change: transform;
+    }
 
-.header h1 {
-  font-family:"Lobster", sans-serif;
-  font-style: normal;
-  font-size: 3rem;
-  font-weight: 700;
+    .card:active {
+      transform: scale(0.97);
+    }
 
-}
+    .card img {
+      width: 100%;
+      height: 180px auto;
+      object-fit: cover;
+    }
 
-.header img{
-  height: 7rem;
-}
+    .info {
+      padding: 1rem;
+    }
 
-.header p {
-  font-size: 0.9rem;
-  color: #666;
-}
+    .info h2 {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
 
-/* CATÁLOGO */
-.catalogo {
-  padding: 1rem;
-  display: grid;
-  gap: 1rem;
-}
+    .info p {
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
 
-/* TARJETAS */
-.card {
-  background: #fff;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  will-change: transform;
-}
+    button {
+      width: 100%;
+      padding: 0.7rem;
+      border: none;
+      border-radius: 12px;
+      background: #111;
+      color: #fff;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
 
-.card:active {
-  transform: scale(0.97);
-}
-
-/* IMAGEN */
-.card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-
-/* INFO */
-.info {
-  padding: 1rem;
-}
-
-.info h2 {
-  font-size: 1rem;
-  margin-bottom: 0.4rem;
-}
-
-.info p {
-  font-weight: 600;
-  margin-bottom: 0.6rem;
-}
-
-button {
-  width: 100%;
-  padding: 0.7rem;
-  border: none;
-  border-radius: 12px;
-  background: #111;
-  color: #fff;
-  font-size: 0.9rem;
-  cursor: pointer;
-}
-
-/* FOOTER */
-.footer {
-  padding: 1.5rem;
-  text-align: center;
-  font-size: 0.8rem;
-  color: #777;
-}
-
-  </Style>
-  <script>
-    // Interacción básica tipo app
-document.querySelectorAll("button").forEach(btn => {
-  btn.addEventListener("click", () => {
-    window.open(
-      "https://wa.me/521XXXXXXXXXX?text=Hola,%20quiero%20ordenar",
-      "_blank"
-    );
-  });
-});
-
-  </script>
+    /* FOOTER */
+    footer {
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #777;
+    }
+  </style>
 </head>
+
 <body>
 
   <!-- HEADER -->
-  <header class="header">
+<header id="main-header">
+  <div class="header-content">
     <h1>Churros Rellenos</h1>
-    <img src="img/Recurso 1.svg" alt="Logo">
-    <p>"!DICEN QUE ESTAN BUENOS! ¿ SAABEEEE ?"</p>
-    <p>"Hechos al momento y a tu gusto"</p>
-  </header>
+
+    <img class="logo" src="img/Recurso 1.svg" alt="Logo">
+
+    <p class="slogan">¡Dicen que están buenos! ¿ Saaabeeee ?</p>
+
+    <p class="extra">Hechos al momento y a tu gusto</p>
+  </div>
+</header>
+<br>
 
   <!-- CATÁLOGO -->
   <main class="catalogo">
 
+  <section class="categorias">Churros</section>
     <section class="card">
-      <img src="img/churro1.webp" alt="Churro relleno">
+      <img src="img/ChuN.jpeg" alt="Churro relleno">
       <div class="info">
-        <h2>Churro relleno de cajeta</h2>
+        <h2>Churro relleno de Nutella</h2>
         <p>$25 MXN</p>
         <button>Ordenar</button>
       </div>
     </section>
 
     <section class="card">
-      <img src="img/churro2.webp" alt="Churro chocolate">
+      <img src="img/ChuL.jpeg" alt="Churro relleno">
       <div class="info">
-        <h2>Churro relleno de chocolate</h2>
+        <h2>Churro relleno de Lechera</h2>
         <p>$25 MXN</p>
         <button>Ordenar</button>
       </div>
     </section>
 
+    <section class="categorias">Postres Cotsco</section>
     <section class="card">
-      <img src="img/postre.webp" alt="Postre Costco">
+      <img src="img/CHTortuga.jpeg" alt="Churro relleno">
       <div class="info">
-        <h2>Rebanada de pastel Costco</h2>
-        <p>$40 MXN</p>
+        <h2>Cheese cake de tortuga</h2>
+        <p>$50 MXN</p>
         <button>Ordenar</button>
       </div>
     </section>
-
+    <section class="card">
+      <img src="img/CHZarza.jpeg" alt="Churro relleno">
+      <div class="info">
+        <h2>Cheese cake de Zarzamora</h2>
+        <p>$50 MXN</p>
+        <button>Ordenar</button>
+      </div>
+    </section>
   </main>
 
   <!-- FOOTER -->
-  <footer class="footer">
+  <footer>
     <p>© 2026 Churros Rellenos — Sitio oficial</p>
   </footer>
 
-  <script src="main.js"></script>
+  <!-- JS -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+      document.querySelectorAll("button").forEach(btn => {
+        btn.addEventListener("click", () => {
+          window.open(
+            "https://wa.me/521XXXXXXXXXX?text=Hola,%20quiero%20ordenar",
+            "_blank"
+          );
+        });
+      });
+
+      const header = document.getElementById("main-header");
+
+      window.addEventListener("scroll", () => {
+        header.classList.toggle("compact", window.scrollY > 81);
+      });
+
+    });
+  </script>
+
 </body>
 </html>
