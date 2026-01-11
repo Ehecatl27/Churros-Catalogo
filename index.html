@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Churros Rellenos | Catálogo</title>
+
+  <Style>
+    /* RESET BÁSICO */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* SCROLL SUAVE NATIVO */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #fafafa;
+  color: #222;
+  line-height: 1.4;
+}
+
+/* HEADER */
+.header {
+  padding: 1.5rem 1rem;
+  text-align: center;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.header p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* CATÁLOGO */
+.catalogo {
+  padding: 1rem;
+  display: grid;
+  gap: 1rem;
+}
+
+/* TARJETAS */
+.card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  will-change: transform;
+}
+
+.card:active {
+  transform: scale(0.97);
+}
+
+/* IMAGEN */
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* INFO */
+.info {
+  padding: 1rem;
+}
+
+.info h2 {
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.info p {
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+
+button {
+  width: 100%;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 12px;
+  background: #111;
+  color: #fff;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+/* FOOTER */
+.footer {
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #777;
+}
+
+  </Style>
+  <script>
+    // Interacción básica tipo app
+document.querySelectorAll("button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    window.open(
+      "https://wa.me/521XXXXXXXXXX?text=Hola,%20quiero%20ordenar",
+      "_blank"
+    );
+  });
+});
+
+  </script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <h1>Churros Rellenos</h1>
+    <p>Gruesos • Recién hechos • Azúcar & relleno</p>
+  </header>
+
+  <!-- CATÁLOGO -->
+  <main class="catalogo">
+
+    <section class="card">
+      <img src="img/churro1.webp" alt="Churro relleno">
+      <div class="info">
+        <h2>Churro relleno de cajeta</h2>
+        <p>$25 MXN</p>
+        <button>Ordenar</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <img src="img/churro2.webp" alt="Churro chocolate">
+      <div class="info">
+        <h2>Churro relleno de chocolate</h2>
+        <p>$25 MXN</p>
+        <button>Ordenar</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <img src="img/postre.webp" alt="Postre Costco">
+      <div class="info">
+        <h2>Rebanada de pastel Costco</h2>
+        <p>$40 MXN</p>
+        <button>Ordenar</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2026 Churros Rellenos — Sitio oficial</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
