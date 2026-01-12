@@ -7,7 +7,8 @@
 
   <!-- FUENTE -->
   <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Oswald:wght@200..700&display=swap" rel="stylesheet" > 
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Oswald:wght@200..700&display=swap" rel="stylesheet" >
+  <link rel="icon" href="img/Recurso 1.svg" type="image/png"">
   <style>
     /* RESET */
     * {
@@ -32,23 +33,24 @@
     position: sticky;
     top: 0;
     background: #fff;
-    height: 30vh;
+    height: 27vh;
     transition: height 0.4s ease;
     overflow: hidden;
     z-index: 10;
+    will-change: height;
     }
 
     #main-header.compact {
-    height: 6.8rem;
+    height: 7rem;
     }
 
     .logo,
-    .extra {
+    .slogan {
     transition: opacity 0.3s ease, transform 0.3s ease;
     }
 
     #main-header.compact .logo,
-    #main-header.compact .extra {
+    #main-header.compact .slogan {
     opacity: 0;
     transform: translateY(-10px);
     }
@@ -68,11 +70,12 @@
       font-size: 0.95rem;
       color: #444;
       transition: opacity 0.3s ease, font-size 0.3s ease;
+      
     }
 
     .logo {
-      height: 6rem;
-      margin: 0.7rem auto;
+      height: 10vh;
+      margin: 0.5rem auto;
       display: block;
     }
 
@@ -82,16 +85,21 @@
     }
 
     .logo,
-    .extra {
+    .slogan {
       transition: opacity 0.3s ease, transform 0.3s ease;
     }
 
     #main-header.compact .logo,
-    #main-header.compact .extra {
+    #main-header.compact .slogan {
     opacity: 0;
     transform: translateY(-10px);
     pointer-events: none;
-}
+    }
+    #main-header.compact .extra{
+    
+      transform: translateY(-660%);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
 
 
     /* CATÁLOGO */
@@ -103,7 +111,7 @@
     .categorias{
       text-align: center;
       width: 100%;
-      padding: 0.2rem;
+      padding: 0.4rem;
       border: none;
       border-radius: 12px;
       background: #000000d7;
@@ -152,7 +160,7 @@
 
     button {
       width: 100%;
-      padding: 0.7rem;
+      padding: 0.5rem;
       border: none;
       border-radius: 12px;
       background: #111;
@@ -195,7 +203,7 @@
       <img src="img/ChuN.jpeg" alt="Churro relleno">
       <div class="info">
         <h2>Churro relleno de Nutella</h2>
-        <p>$25 MXN</p>
+        <p>$25 MXN c/u</p>
         <button>Ordenar</button>
       </div>
     </section>
@@ -204,7 +212,7 @@
       <img src="img/ChuL.jpeg" alt="Churro relleno">
       <div class="info">
         <h2>Churro relleno de Lechera</h2>
-        <p>$25 MXN</p>
+        <p>$25 MXN c/u</p>
         <button>Ordenar</button>
       </div>
     </section>
@@ -214,7 +222,7 @@
       <img src="img/CHTortuga.jpeg" alt="Churro relleno">
       <div class="info">
         <h2>Cheese cake de tortuga</h2>
-        <p>$50 MXN</p>
+        <p>$50 MXN c/u</p>
         <button>Ordenar</button>
       </div>
     </section>
@@ -222,10 +230,28 @@
       <img src="img/CHZarza.jpeg" alt="Churro relleno">
       <div class="info">
         <h2>Cheese cake de Zarzamora</h2>
-        <p>$50 MXN</p>
+        <p>$50 MXN c/u</p>
         <button>Ordenar</button>
       </div>
     </section>
+    <section class="card">
+      <img src="img/ChocoFlan1.jpeg" alt="Churro relleno">
+      <div class="info">
+        <h2>Chocoflaan</h2>
+        <p>$50 MXN c/u</p>
+        <button>Ordenar</button>
+      </div>
+    </section>
+    <section class="card">
+      <img src="img/Muffin.jpeg" alt="Churro relleno">
+      <div class="info">
+        <h2>Muffin de chocolate</h2>
+        <p>$25 MXN c/u</p>
+        <button>Ordenar</button>
+      </div>
+    </section>
+    <section class="categorias"></section>
+
   </main>
 
   <!-- FOOTER -->
@@ -248,9 +274,22 @@
 
       const header = document.getElementById("main-header");
 
+      let isCompact = false;
+
       window.addEventListener("scroll", () => {
-        header.classList.toggle("compact", window.scrollY > 81);
+        const y = window.scrollY;
+
+        if (!isCompact && y > 120) {
+          header.classList.add("compact");
+          isCompact = true;
+        }
+
+        if (isCompact && y < 40) {
+          header.classList.remove("compact");
+          isCompact = false;
+        }
       });
+
 
     });
   </script>
