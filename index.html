@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Churros Rellenos | Catálogo</title>
 
-  <!-- FUENTE -->
-  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Oswald:wght@200..700&display=swap" rel="stylesheet" >
-  <link rel="icon" href="img/Recurso 1.svg" type="image/png"">
+  <!-- FUENTES -->
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  <link rel="icon" href="img/Recurso 1.svg" type="image/png">
+
   <style>
     /* RESET */
     * {
@@ -17,13 +17,11 @@
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color: #fafafa;
+      background: #fafafa;
       color: #222;
       line-height: 1.4;
     }
@@ -33,11 +31,14 @@
     position: sticky;
     top: 0;
     background: #fff;
-    height: 27vh;
-    transition: height 0.4s ease;
+    height: 28vh;
+    transition: height 2s ease ;
+    transition: background-color 0.2s ease;
+    transition: translateY 0.1s ease-out;
     overflow: hidden;
     z-index: 10;
     will-change: height;
+    transition: ease all ;
     }
 
     #main-header.compact {
@@ -46,13 +47,14 @@
 
     .logo,
     .slogan {
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: ease, transform 0.3s ease;
     }
 
     #main-header.compact .logo,
     #main-header.compact .slogan {
     opacity: 0;
     transform: translateY(-10px);
+    pointer-events: none;
     }
 
     .header-content {
@@ -89,49 +91,39 @@
       transition: opacity 0.3s ease, transform 0.3s ease;
     }
 
-    #main-header.compact .logo,
-    #main-header.compact .slogan {
-    opacity: 0;
-    transform: translateY(-10px);
-    pointer-events: none;
-    }
     #main-header.compact .extra{
     
-      transform: translateY(-660%);
-      transition: opacity 0.3s ease, transform 0.3s ease;
+      transform: translateY(-14.5vh);
+      transition: opacity 0.3s ease, transform 0.8s ease;
     }
 
-
-    /* CATÁLOGO */
+    /* ================= CATÁLOGO ================= */
     .catalogo {
       padding: 1rem;
       display: grid;
       gap: 1rem;
     }
-    .categorias{
+
+    .categorias {
       text-align: center;
       width: 100%;
       padding: 0.4rem;
-      border: none;
       border-radius: 12px;
       background: #000000d7;
       font-size: 1.2rem;
       font-family: "Oswald", sans-serif;
-      font-optical-sizing: auto;
-      font-style: normal;
       color: whitesmoke;
-      box-shadow: 0px 0px 10px rgba(26, 26, 26, 0.677);
-      text-shadow: 0px 0px 8px white;
+      box-shadow: 0 0 10px rgba(26, 26, 26, 0.65);
+      text-shadow: 0 0 8px white;
     }
 
-    /* TARJETAS */
+    /* ================= TARJETAS ================= */
     .card {
       background: #fff;
       border-radius: 16px;
       overflow: hidden;
       box-shadow: 0 10px 25px rgba(0,0,0,0.05);
       transition: transform 0.25s ease;
-      will-change: transform;
     }
 
     .card:active {
@@ -140,7 +132,7 @@
 
     .card img {
       width: 100%;
-      height: 180px auto;
+      height: 180px;
       object-fit: cover;
     }
 
@@ -169,7 +161,7 @@
       cursor: pointer;
     }
 
-    /* FOOTER */
+    /* ================= FOOTER ================= */
     footer {
       padding: 1.5rem;
       text-align: center;
@@ -181,7 +173,7 @@
 
 <body>
 
-  <!-- HEADER -->
+ <!-- HEADER -->
 <header id="main-header">
   <div class="header-content">
     <h1>Churros Rellenos</h1>
@@ -193,106 +185,135 @@
     <p class="extra">Hechos al momento y a tu gusto</p>
   </div>
 </header>
-<br>
 
-  <!-- CATÁLOGO -->
-  <main class="catalogo">
+<main class="catalogo">
 
   <section class="categorias">Churros</section>
-    <section class="card">
-      <img src="img/ChuN.jpeg" alt="Churro relleno">
-      <div class="info">
-        <h2>Churro relleno de Nutella</h2>
-        <p>$25 MXN c/u</p>
-        <button>Ordenar</button>
-      </div>
-    </section>
 
-    <section class="card">
-      <img src="img/ChuL.jpeg" alt="Churro relleno">
-      <div class="info">
-        <h2>Churro relleno de Lechera</h2>
-        <p>$25 MXN c/u</p>
-        <button>Ordenar</button>
-      </div>
-    </section>
+  <section class="card">
+    <img src="img/ChuN.jpeg" alt="Churro Nutella">
+    <div class="info">
+      <h2>Churro relleno de Nutella</h2>
+      <p>$25 MXN c/u</p>
+      <button>Ordenar</button>
+    </div>
+  </section>
 
-    <section class="categorias">Postres Cotsco</section>
-    <section class="card">
-      <img src="img/CHTortuga.jpeg" alt="Churro relleno">
-      <div class="info">
-        <h2>Cheese cake de tortuga</h2>
-        <p>$50 MXN c/u</p>
-        <button>Ordenar</button>
-      </div>
-    </section>
-    <section class="card">
-      <img src="img/CHZarza.jpeg" alt="Churro relleno">
-      <div class="info">
-        <h2>Cheese cake de Zarzamora</h2>
-        <p>$50 MXN c/u</p>
-        <button>Ordenar</button>
-      </div>
-    </section>
-    <section class="card">
-      <img src="img/ChocoFlan1.jpeg" alt="Churro relleno">
-      <div class="info">
-        <h2>Chocoflaan</h2>
-        <p>$50 MXN c/u</p>
-        <button>Ordenar</button>
-      </div>
-    </section>
-    <section class="card">
-      <img src="img/Muffin.jpeg" alt="Churro relleno">
-      <div class="info">
-        <h2>Muffin de chocolate</h2>
-        <p>$25 MXN c/u</p>
-        <button>Ordenar</button>
-      </div>
-    </section>
-    <section class="categorias"></section>
+  <section class="card">
+    <img src="img/ChuL.jpeg" alt="Churro Lechera">
+    <div class="info">
+      <h2>Churro relleno de Lechera</h2>
+      <p>$25 MXN c/u</p>
+      <button>Ordenar</button>
+    </div>
+  </section>
 
-  </main>
+  <section class="categorias">Postres Costco</section>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2026 Churros Rellenos — Sitio oficial</p>
-  </footer>
+  <section class="card">
+    <img src="img/CHTortuga.jpeg" alt="Cheesecake Tortuga">
+    <div class="info">
+      <h2>Cheesecake de Tortuga</h2>
+      <p>$50 MXN c/u</p>
+      <button>Ordenar</button>
+    </div>
+  </section>
 
-  <!-- JS -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
+  <section class="card">
+    <img src="img/CHZarza.jpeg" alt="Cheesecake Zarzamora">
+    <div class="info">
+      <h2>Cheesecake de Zarzamora</h2>
+      <p>$50 MXN c/u</p>
+      <button>Ordenar</button>
+    </div>
+  </section>
 
-      document.querySelectorAll("button").forEach(btn => {
-        btn.addEventListener("click", () => {
-          window.open(
-            "https://wa.me/521XXXXXXXXXX?text=Hola,%20quiero%20ordenar",
-            "_blank"
-          );
-        });
-      });
+  <section class="card">
+    <img src="img/ChocoFlan1.jpeg" alt="Chocoflan">
+    <div class="info">
+      <h2>Chocoflan</h2>
+      <p>$50 MXN c/u</p>
+      <button>Ordenar</button>
+    </div>
+  </section>
 
-      const header = document.getElementById("main-header");
+  <section class="card">
+    <img src="img/Muffin.jpeg" alt="Muffin">
+    <div class="info">
+      <h2>Muffin de chocolate</h2>
+      <p>$25 MXN c/u</p>
+      <button>Ordenar</button>
+    </div>
+  </section>
 
-      let isCompact = false;
+  <section class="categorias">Postres fríos</section>
 
-      window.addEventListener("scroll", () => {
-        const y = window.scrollY;
+  <section class="card">
+    <img src="img/FlanGrande.jpeg" alt="Flan Grande">
+    <div class="info">
+      <h2>Flan Grande</h2>
+      <p>$35 MXN c/u</p>
+      <button>Ordenar</button>
+    </div>
+  </section>
 
-        if (!isCompact && y > 120) {
-          header.classList.add("compact");
-          isCompact = true;
-        }
+  <section class="card">
+    <img src="img/GelatinaChica.jpeg" alt="Gelatina chica">
+    <div class="info">
+      <h2>Gelatina mosaico chica</h2>
+      <p>$20 MXN c/u</p>
+      <button>Ordenar</button>
+    </div>
+  </section>
 
-        if (isCompact && y < 40) {
-          header.classList.remove("compact");
-          isCompact = false;
-        }
-      });
+  <section class="card">
+    <img src="img/FlanChico.jpeg" alt="Flan chico">
+    <div class="info">
+      <h2>Flan chico</h2>
+      <p>$20 MXN c/u</p>
+      <button>Ordenar</button>
+    </div>
+  </section>
 
+</main>
 
+<footer>
+  <p>© 2026 Churros Rellenos — Sitio oficial</p>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  document.querySelectorAll("button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      window.open(
+        "https://wa.me/521XXXXXXXXXX?text=Hola,%20quiero%20ordenar",
+        "_blank"
+      );
     });
-  </script>
+  });
+
+  const div = document.getElementById("main-header");
+  let prevY = window.scrollY;
+  window.addEventListener("scroll", function(){
+    
+    if(window.scrollY > 20 ){
+      div.classList.add('compact')
+    }
+    if(window.scrollY <=19){
+      div.classList.remove('compact')
+    }
+    prevY = window.scrollY;
+
+
+
+
+    
+    
+  });
+
+});
+</script>
 
 </body>
 </html>
