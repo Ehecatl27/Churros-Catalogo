@@ -17,7 +17,9 @@
       box-sizing: border-box;
     }
 
-    html { scroll-behavior: smooth; }
+    html {
+    font-size: 16px; 
+    scroll-behavior: smooth; }
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -26,76 +28,65 @@
       line-height: 1.4;
     }
 
-    /* HEADER */
-    #main-header {
-    position: sticky;
-    top: 0;
-    background: #fff;
-    height: 28vh;
-    transition: height 2s ease ;
-    transition: background-color 0.2s ease;
-    transition: translateY 0.1s ease-out;
-    overflow: hidden;
-    z-index: 10;
-    will-change: height;
-    transition: ease all ;
+    /* ================= HEADER ================= */
+    #main-header{
+      position: sticky;
+      top: 0;
+      width: 100%;
+      height: 30vh;
+      background: #fff;
+      transition: height 0.8s ease;
+      overflow: hidden;
+      z-index: 100;
+      border-bottom: 0.1rem solid rgba(0, 0, 0, 0.518);
+      box-shadow: 0rem 0rem 0.6rem rgb(0, 0, 0);
     }
-
-    #main-header.compact {
-    height: 7rem;
+    /*Clase añadida compactada*/
+    #main-header.compact{
+      height: 11vh;
     }
-
-    .logo,
-    .slogan {
-    transition: ease, transform 0.3s ease;
-    }
-
+    /*Compactada Ocultar logo y slogan*/
     #main-header.compact .logo,
     #main-header.compact .slogan {
-    opacity: 0;
-    transform: translateY(-10px);
-    pointer-events: none;
+      opacity: 0;
+      height: 0;
+      display: none;
+      pointer-events: none;
     }
 
-    .header-content {
+    /*Ajuste de contenido visible*/
+    #main-header.compact .header-inner {
+      padding: 1vh;
+      grid-template-rows: 5.5vh auto;
+      margin: 0;
+    }
+    .header-inner{
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto auto auto auto;
+      align-items: center;
+      justify-items: center;
       text-align: center;
-      padding: 1rem;
     }
-
-    .header-content h1 {
+    .header-inner h1{
       font-family: "Lobster", sans-serif;
       font-size: 3rem;
-      margin-bottom: 0.3rem;
     }
 
-    .slogan {
-      font-size: 0.95rem;
+    .logo{
+      height: 15vh;
+      transition: opacity 0.3 ease;
+    }
+    .slogan{
+      font-size: 1rem;
       color: #444;
-      transition: opacity 0.3s ease, font-size 0.3s ease;
-      
-    }
-
-    .logo {
-      height: 10vh;
-      margin: 0.5rem auto;
-      display: block;
-    }
-
-    .extra {
-      font-size: 0.85rem;
-      color: #666;
-    }
-
-    .logo,
-    .slogan {
       transition: opacity 0.3s ease, transform 0.3s ease;
     }
-
-    #main-header.compact .extra{
-    
-      transform: translateY(-14.40vh);
-      transition: opacity 0.3s ease, transform 0.8s ease;
+    .extra {
+      font-size: 0.9rem;
+      color: #666;
     }
+  
 
     /* ================= CATÁLOGO ================= */
     .catalogo {
@@ -175,7 +166,7 @@
 
  <!-- HEADER -->
 <header id="main-header">
-  <div class="header-content">
+  <div class="header-inner">
     <h1>Churros Rellenos</h1>
 
     <img class="logo" src="img/Recurso 1.svg" alt="Logo">
@@ -293,24 +284,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  const div = document.getElementById("main-header");
-  let prevY = window.scrollY;
-  window.addEventListener("scroll", function(){
-    
-    if(window.scrollY > 20 ){
-      div.classList.add('compact')
-    }
-    if(window.scrollY <=19){
-      div.classList.remove('compact')
-    }
-    prevY = window.scrollY;
+  const header = document.getElementById("main-header");
+  let compact = false;
+  
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 240 && !compact) {
+    header.classList.add("compact");
+    compact = true;
+  }
 
-
-
-
-    
-    
-  });
+  if (window.scrollY < 18 && compact) {
+    header.classList.remove("compact");
+    compact = false;
+  }
+});
 
 });
 </script>
